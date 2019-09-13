@@ -1,0 +1,53 @@
+@import '../../../var';
+
+.side-panel-container {
+
+  width: 50px;
+  background-color: #7b84fc;
+  border-radius: 15px;
+  float: left;
+
+  .side-panel {
+    padding: 10px;
+    display: flex;
+    height: -webkit-fill-available;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .main-logo {
+      height: 0px;
+      flex: 9;
+    }
+
+    .nav-options {
+      flex: 18;
+      justify-content: space-around;
+      display: flex;
+      flex-direction: column;
+
+      .nav-option {
+        color: white;
+      }
+    }
+
+    .expand-arrow {
+      flex: 16;
+
+      display: flex;
+      flex-direction: column-reverse;
+
+      span {
+
+        i {
+          color: white;
+        }
+      }
+    }
+
+  }
+}
+
+.expanded {
+  width: 150px;
+}

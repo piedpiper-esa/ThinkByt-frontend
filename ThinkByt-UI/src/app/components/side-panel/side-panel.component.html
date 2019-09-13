@@ -1,0 +1,13 @@
+<div class="side-panel-container" [ngClass]="{'expanded': isExpanded}">
+  <div class="side-panel">
+    <img src="../../../assets/images/Logo.jpg" alt="logo" class="main-logo" />
+    <div class="nav-options" *ngIf="!isExpanded">
+      <a *ngFor="let item of navOptions" href="" class="nav-option"><span><i class={{item}}></i></span></a>
+    </div>
+    <div class="nav-options" *ngIf="isExpanded">
+            <a *ngFor="let item of navOptionsExpanded; index as i" href="" class="nav-option"><span class="px-2"><i class={{navOptions[i]}}></i></span>{{item}}</a>
+    </div>
+    <a (click)="expandSidePanel()" class="expand-arrow"><span><i *ngIf="!isExpanded"
+          class="fa fa-long-arrow-right"></i><i *ngIf="isExpanded" class="fa fa-long-arrow-left"></i></span></a>
+  </div>
+</div>
