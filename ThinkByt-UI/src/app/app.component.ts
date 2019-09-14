@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ThinkByt-UI';
+  isExpanded: boolean;
+
+  expandSidePanel(expanded: boolean) {
+    this.isExpanded = expanded;
+  }
 }

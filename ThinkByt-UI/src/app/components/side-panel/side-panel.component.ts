@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-side-panel',
@@ -9,6 +9,7 @@ export class SidePanelComponent implements OnInit {
   navOptions: any;
   isExpanded = false;
   navOptionsExpanded: string[];
+  @Output() Expanded = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -19,6 +20,7 @@ export class SidePanelComponent implements OnInit {
 
   expandSidePanel() {
     this.isExpanded = this.isExpanded ? false : true;
+    this.Expanded.emit(this.isExpanded);
   }
 
 }

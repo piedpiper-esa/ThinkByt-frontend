@@ -1,3 +1,6 @@
-<app-side-panel></app-side-panel>
+<app-side-panel (Expanded)="expandSidePanel($event)"></app-side-panel>
 <app-header></app-header>
-<!-- <router-outlet></router-outlet> -->
+<div class="router-outlet" [ngClass]="{'when-side-nav-expands': isExpanded}">
+    <router-outlet></router-outlet>
+</div>
+    

@@ -1,0 +1,38 @@
+@import '../../../var';
+
+.header-container {
+    position: relative;
+    .header {
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        .welcome-user {
+            margin-left: 15px;
+            h3,h6 {
+                margin: 0;
+            }
+            h3 {
+                color: $text-dark;
+            }
+            h6 {
+                color: $text-light;
+            }
+        }
+        .profile-and-search {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 50px;
+
+            .search {
+
+            }
+            .profile {
+
+            }
+        }
+    }
+}
