@@ -1,6 +1,9 @@
-<app-side-panel (Expanded)="expandSidePanel($event)"></app-side-panel>
-<app-header></app-header>
-<div class="router-outlet" [ngClass]="{'when-side-nav-expands': isExpanded}">
-    <router-outlet></router-outlet>
+<app-side-panel [navOptions]="navBarOptions" *ngIf="isLogin" (Expanded)="expandSidePanel($event)"></app-side-panel>
+<app-header *ngIf="isLogin"></app-header>
+<div *ngIf="isLogin" class="router-outlet" [ngClass]="{'when-side-nav-expands': isExpanded}">
+  <router-outlet></router-outlet>
 </div>
-    
+
+<div *ngIf="!isLogin">
+  <router-outlet></router-outlet>
+</div>
