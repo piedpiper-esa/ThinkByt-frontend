@@ -6,6 +6,10 @@
   background-color: #7b84fc;
   border-radius: 15px;
   float: left;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+
 
   .side-panel {
     padding: 10px;
@@ -15,8 +19,11 @@
     justify-content: space-between;
     align-items: center;
 
-    .main-logo {
-      height: 0px;
+    .main-logo-container {
+      .main-logo {
+        height: 0px;
+      }
+
       flex: 9;
     }
 
@@ -28,12 +35,24 @@
 
       .nav-option {
         color: white;
+        padding: 3px;
+        text-decoration: none;
+
+        span {
+          padding: 0 5px;
+        }
+      }
+
+      .nav-option:hover,
+      .active {
+        background-color: #8a9bfc;
+        border-radius: 5px;
       }
     }
 
     .expand-arrow {
       flex: 16;
-
+      transition: all 1s;
       display: flex;
       flex-direction: column-reverse;
 
@@ -50,4 +69,48 @@
 
 .expanded {
   width: 150px;
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }

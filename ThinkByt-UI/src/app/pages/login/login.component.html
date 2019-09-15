@@ -1,0 +1,41 @@
+<div class="outer-container">
+  <mat-card>
+    <div class="inner-container" [ngClass]="{'flex-row-reverse': isRegister}">
+      <div class="left-container" [ngClass]="{'left-half-border-radius': !isRegister , 'right-half-border-radius': isRegister}">
+        LOGO
+        <div class="login-welocme">
+          <h1>Welcome!</h1>
+        </div>
+        <button class="login-btn left-btn" (click)="registerClicked()">{{registerBtn}}</button>
+        <h6>{{btnInfo}}</h6>
+      </div>
+      <div class="right-container">
+        <h1>{{loginBtn}} to EduByt</h1>
+        <div class="login-form">
+          <form class="example-form" autocomplete="off" [formGroup]="loginForm">
+            <div class="login-form-fields">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Enter your Email" formControlName="email" autocomplete="off">
+                <mat-error *ngIf="loginForm.controls['email']?.status == 'INVALID' && !loginForm.controls['email']?.errors?.required">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="loginForm.controls['email']?.errors?.required && loginForm.controls['email']?.touched">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="example-full-width">
+                <input matInput formControlName="password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+            <button class="login-btn right-btn" (click)="login()">{{loginBtn}}</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </mat-card>
+</div>

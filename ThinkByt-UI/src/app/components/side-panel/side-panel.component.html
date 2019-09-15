@@ -1,11 +1,14 @@
-<div class="side-panel-container" [ngClass]="{'expanded': isExpanded}">
+<div class="side-panel-container" [@animationOption1]="clickedDivState">
   <div class="side-panel">
-    <img src="../../../assets/images/Logo.jpg" alt="logo" class="main-logo" />
+    <div class="main-logo-container">
+      <img src="../../../assets/images/Logo.jpg" alt="logo" class="main-logo" />
+    </div>
     <div class="nav-options" *ngIf="!isExpanded">
-      <a *ngFor="let item of navOptions" href="" class="nav-option"><span><i class={{item}}></i></span></a>
+      <a *ngFor="let item of navOptions" class="nav-option" [ngClass]="{'active': item.title == selectedOption.title}" (click)="navBarSelected(item)"><span><i class={{item.icon}}></i></span></a>
     </div>
     <div class="nav-options" *ngIf="isExpanded">
-            <a *ngFor="let item of navOptionsExpanded; index as i" href="" class="nav-option"><span class="px-2"><i class={{navOptions[i]}}></i></span>{{item}}</a>
+      <a *ngFor="let item of navOptions" class="nav-option" [ngClass]="{'active': item.title == selectedOption.title}" (click)="navBarSelected(item)"><span class="px-2"><i
+            class={{item.icon}}></i></span>{{item.title}}</a>
     </div>
     <a (click)="expandSidePanel()" class="expand-arrow"><span><i *ngIf="!isExpanded"
           class="fa fa-long-arrow-right"></i><i *ngIf="isExpanded" class="fa fa-long-arrow-left"></i></span></a>
